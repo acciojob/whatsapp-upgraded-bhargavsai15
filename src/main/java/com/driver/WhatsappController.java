@@ -2,17 +2,12 @@ package com.driver;
 
 import java.util.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.driver.Service.WhatsappService;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -26,7 +21,6 @@ public class WhatsappController {
     public String createUser(String name, String mobile) throws Exception {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
-
         return whatsappService.createUser(name, mobile);
     }
 
@@ -40,7 +34,6 @@ public class WhatsappController {
 
         //For example: Consider userList1 = {Alex, Bob, Charlie}, userList2 = {Dan, Evan}, userList3 = {Felix, Graham, Hugh}.
         //If createGroup is called for these userLists in the same order, their group names would be "Group 1", "Evan", and "Group 2" respectively.
-
         return whatsappService.createGroup(users);
     }
 
@@ -48,7 +41,6 @@ public class WhatsappController {
     public int createMessage(String content){
         // The 'i^th' created message has message id 'i'.
         // Return the message id.
-
         return whatsappService.createMessage(content);
     }
 
